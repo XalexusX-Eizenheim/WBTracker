@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Отслеживание UTM для Wildberries</title>
+  
+  <!-- Google Tag Manager -->
+  <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+  new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+  j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+  'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+  })(window,document,'script','dataLayer','GTM-WHQ7D2NK');</script>
+  <!-- End Google Tag Manager -->
+  
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 20px;
+      max-width: 600px;
+      margin: 0 auto;
+      line-height: 1.6;
+    }
+    .btn {
+      display: block;
+      margin: 15px auto;
+      padding: 12px 0;
+      background: #FF6B00;
+      color: white;
+      text-decoration: none;
+      border-radius: 5px;
+      width: 80%;
+      max-width: 300px;
+    }
+    h1 {
+      color: #333;
+      margin-bottom: 30px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-XXXXXX"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+  
+  <h1>Откуда вы о нас узнали?</h1>
+  
+  <!-- Кнопки с UTM-метками -->
+
+  <a href="https://www.wildberries.ru/catalog/277499855/detail.aspx?utm_source=instagram&utm_medium=stories&utm_campaign=april2025&utm_content=Blogger" class="btn">Реклама у блогера</a>
+
+  <script>
+    // Отслеживание кликов в GA4
+    document.querySelectorAll('.btn').forEach(btn => {
+      btn.addEventListener('click', function() {
+        gtag('event', 'utm_click', {
+          'event_category': 'source',
+          'event_label': this.textContent.trim()
+        });
+      });
+    });
+  </script>
+</body>
+</html>
