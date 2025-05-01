@@ -13,6 +13,24 @@
   })(window,document,'script','dataLayer','GTM-WHQ7D2NK');</script>
   <!-- End Google Tag Manager -->
   
+  <!-- Скрипт для отправки UTM в GTM -->
+  <script>
+    const urlParams = new URLSearchParams(window.location.search);
+    const utmParams = {};
+    
+    urlParams.forEach((value, key) => {
+      if (key.startsWith('utm_')) {
+        utmParams[key] = value;
+      }
+    });
+
+    window.dataLayer = window.dataLayer || [];
+    dataLayer.push({
+      'event': 'utm_tracking',
+      ...utmParams
+    });
+  </script>
+  
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -21,17 +39,37 @@
       max-width: 600px;
       margin: 0 auto;
       line-height: 1.6;
+      background-image: url('https://example.com/your-product-image.jpg'); /* Замените на ссылку вашего изображения */
+      background-size: cover;
+      background-position: center;
+      background-blend-mode: overlay;
+      background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон для лучшей читаемости */
+    }
+    .container {
+      background-color: rgba(255, 255, 255, 0.9); /* Легкая прозрачность контейнера */
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+    .logo {
+      max-width: 150px;
+      margin-bottom: 20px;
     }
     .btn {
       display: block;
-      margin: 15px auto;
+      margin: 20px auto;
       padding: 12px 0;
-      background: #FF6B00;
-      color: white;
+      background: #FFB6C1; /* Нежно-розовый цвет */
+      color: #333;
       text-decoration: none;
       border-radius: 5px;
       width: 80%;
       max-width: 300px;
+      font-weight: bold;
+      transition: background 0.3s;
+    }
+    .btn:hover {
+      background: #FF69B4; /* Более насыщенный розовый при наведении */
     }
     h1 {
       color: #333;
@@ -45,51 +83,30 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   <!-- End Google Tag Manager (noscript) -->
   
-  <h1>Спасибо, что Вам интересен наш товар</h1>
-  
-  <!-- Кнопки с UTM-метками -->
-<a href="https://www.wildberries.ru/catalog/277499855/detail.aspx" class="btn">Перейти к товару на WB</a>
-
-<script>
-  // Функция для получения UTM-меток
-  function getUtmParams() {
-    const params = new URLSearchParams(window.location.search);
-    const utmTags = {};
-    params.forEach((value, key) => {
-      if (key.startsWith('utm_')) {
-        utmTags[key] = value;
-      }
-    });
-    return utmTags;
-  }
-
-  // Добавляем UTM-метки к кнопкам
-  document.querySelectorAll('.btn').forEach(btn => {
-    const originalUrl = btn.getAttribute('href');
-    const utmParams = new URLSearchParams(getUtmParams()).toString();
+  <div class="container">
+    <!-- Логотип компании -->
+    <img src="https://example.com/your-logo.png" alt="Логотип компании" class="logo"> <!-- Замените на ссылку вашего логотипа -->
     
-    if (utmParams) {
-      btn.setAttribute('href', originalUrl + (originalUrl.includes('?') ? '&' : '?') + utmParams);
-    }
+    <h1>Спасибо, что Вам интересен наш товар</h1>
+    
+    <a href="https://www.wildberries.ru/catalog/277499855/detail.aspx" class="btn">Перейти к товару на WB</a>
+  </div>
 
-    // Отправка данных в GA4
-    btn.addEventListener('click', function() {
-      gtag('event', 'utm_click', {
-        'event_category': 'source',
-        'event_label': this.textContent.trim(),
-        ...getUtmParams()
-      });
-    });
-  });
-</script>
-  
   <script>
-    // Отслеживание кликов в GA4
     document.querySelectorAll('.btn').forEach(btn => {
+      // Добавляем UTM-метки к ссылке
+      const originalUrl = btn.getAttribute('href');
+      const utmString = new URLSearchParams(utmParams).toString();
+      if (utmString) {
+        btn.setAttribute('href', `${originalUrl}${originalUrl.includes('?') ? '&' : '?'}${utmString}`);
+      }
+
+      // Отправка кликов в GTM
       btn.addEventListener('click', function() {
-        gtag('event', 'utm_click', {
-          'event_category': 'source',
-          'event_label': this.textContent.trim()
+        dataLayer.push({
+          'event': 'utm_click',
+          'button_text': this.textContent.trim(),
+          ...utmParams
         });
       });
     });
