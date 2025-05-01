@@ -5,23 +5,23 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Nosiams Brand - Официальный магазин на Wildberries</title>
   
-  <!-- Google Tag Manager -->
+  <!-- Упрощенный Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f)})(window,document,'script','dataLayer','GTM-WHQ7D2NK');</script>
   
   <style>
     :root {
       --primary-color: #FF6B8B;
       --hover-color: #FF4757;
-      --peach-bg: #FFE8D6;
+      --peach-bg: #FFE8D6; /* Светлый персиковый */
       --text-color: #333;
     }
     
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
       text-align: center;
-      padding: 5px; /* Уменьшено с 10px */
+      padding: 10px;
       margin: 0;
-      line-height: 1.4; /* Уменьшено с 1.5 */
+      line-height: 1.5;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
@@ -32,46 +32,83 @@
     
     .container {
       background-color: var(--peach-bg);
-      padding: 35px 30px; /* Уменьшено с 25px 20px */
-      border-radius: 18px; /* Уменьшено с 18px */
-      box-shadow: 0 3px 8px rgba(0, 0, 0, 0.08); /* Уменьшено */
-      margin: 10px auto; /* Уменьшено с 10px auto */
-      width: 94%; /* Увеличено с 92% */
-      max-width: 400px; /* Уменьшено с 420px */
+      padding: 25px 20px;
+      border-radius: 18px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      margin: 0 auto;
+      width: 92%;
+      max-width: 420px; /* Оптимальный размер для мобильных */
     }
     
     .logo-link {
       display: block;
-      max-width: 140px; /* Уменьшено с 160px */
-      margin: 0 auto 10px; /* Уменьшено с 15px */
+      max-width: 160px;
+      margin: 0 auto 15px;
+    }
+    
+    .logo {
+      width: 100%;
+      height: auto;
+      transition: transform 0.25s ease;
+    }
+    
+    .logo:hover {
+      transform: scale(1.03);
     }
     
     h1 {
-      font-size: 18px; /* Уменьшено с 20px */
-      margin: 0 0 12px; /* Уменьшено */
+      font-size: 20px;
+      font-weight: 600;
+      margin: 0 0 15px;
       line-height: 1.3;
     }
     
     .btn {
-      margin: 20px auto; /* Уменьшено с 20px */
-      padding: 14px 0; /* Уменьшено с 14px */
-      max-width: 260px; /* Уменьшено с 280px */
-      font-size: 15px; /* Уменьшено с 16px */
+      display: block;
+      margin: 20px auto;
+      padding: 14px 0;
+      background: var(--primary-color);
+      color: white;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 280px;
+      font-weight: 500;
+      font-size: 16px;
+      transition: all 0.25s ease;
+      border: none;
+      box-shadow: 0 3px 8px rgba(255, 107, 139, 0.25);
+      text-decoration: none;
+    }
+    
+    .btn:hover {
+      background: var(--hover-color);
+      transform: translateY(-1px);
+      box-shadow: 0 5px 12px rgba(255, 71, 87, 0.3);
     }
     
     .ig-handle {
-      margin-top: 12px; /* Уменьшено с 15px */
-      font-size: 14px; /* Уменьшено с 15px */
+      color: var(--primary-color);
+      font-weight: 500;
+      margin-top: 15px;
+      display: block;
+      font-size: 15px;
+      text-decoration: none;
     }
 
+    /* Оптимизация для очень маленьких экранов */
     @media (max-width: 360px) {
-      body {
-        padding: 3px; /* Еще меньше отступы */
+      .container {
+        padding: 20px 15px;
+        width: 95%;
       }
       
-      .container {
-        padding: 35px 30px; /* Еще компактнее */
-        width: 96%; /* Еще шире */
+      h1 {
+        font-size: 18px;
+      }
+      
+      .btn {
+        font-size: 15px;
+        padding: 12px 0;
       }
     }
   </style>
@@ -91,6 +128,7 @@
     <a href="https://www.instagram.com/nosiams_brand?igsh=MWl2OHdtdDR0enVycg==" class="ig-handle" target="_blank" rel="noopener">@nosiams_brand</a>
   </div>
 
+  <!-- Оптимизированный скрипт -->
   <script>
     document.addEventListener('DOMContentLoaded', function() {
       const utmParams = {
@@ -99,6 +137,7 @@
         utm_campaign: 'nosiams_promo_' + new Date().getMonth()
       };
       
+      // Добавляем UTM-метки к ссылкам
       document.querySelectorAll('a[href*="wildberries.ru"], a[href*="instagram.com"]').forEach(link => {
         const url = new URL(link.href);
         Object.entries(utmParams).forEach(([key, value]) => {
