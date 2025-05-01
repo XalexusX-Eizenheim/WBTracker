@@ -48,9 +48,41 @@
   <h1>Спасибо, что Вам интересен наш товар</h1>
   
   <!-- Кнопки с UTM-метками -->
+<a href="https://www.wildberries.ru/catalog/277499855/detail.aspx" class="btn">Перейти к товару на WB</a>
 
-  <a href="https://www.wildberries.ru/catalog/277499855/detail.aspx" class="btn">Перейти к товару на WB</a>
+<script>
+  // Функция для получения UTM-меток
+  function getUtmParams() {
+    const params = new URLSearchParams(window.location.search);
+    const utmTags = {};
+    params.forEach((value, key) => {
+      if (key.startsWith('utm_')) {
+        utmTags[key] = value;
+      }
+    });
+    return utmTags;
+  }
 
+  // Добавляем UTM-метки к кнопкам
+  document.querySelectorAll('.btn').forEach(btn => {
+    const originalUrl = btn.getAttribute('href');
+    const utmParams = new URLSearchParams(getUtmParams()).toString();
+    
+    if (utmParams) {
+      btn.setAttribute('href', originalUrl + (originalUrl.includes('?') ? '&' : '?') + utmParams);
+    }
+
+    // Отправка данных в GA4
+    btn.addEventListener('click', function() {
+      gtag('event', 'utm_click', {
+        'event_category': 'source',
+        'event_label': this.textContent.trim(),
+        ...getUtmParams()
+      });
+    });
+  });
+</script>
+  
   <script>
     // Отслеживание кликов в GA4
     document.querySelectorAll('.btn').forEach(btn => {
