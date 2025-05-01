@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Отслеживание UTM для Wildberries</title>
+  <title>Nosiams Brand - Официальный магазин на Wildberries</title>
   
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
@@ -13,67 +13,100 @@
   })(window,document,'script','dataLayer','GTM-WHQ7D2NK');</script>
   <!-- End Google Tag Manager -->
   
-  <!-- Скрипт для отправки UTM в GTM -->
-  <script>
-    const urlParams = new URLSearchParams(window.location.search);
-    const utmParams = {};
-    
-    urlParams.forEach((value, key) => {
-      if (key.startsWith('utm_')) {
-        utmParams[key] = value;
-      }
-    });
-
-    window.dataLayer = window.dataLayer || [];
-    dataLayer.push({
-      'event': 'utm_tracking',
-      ...utmParams
-    });
-  </script>
-  
   <style>
+    :root {
+      --primary-color: #FF6B8B;
+      --hover-color: #FF4757;
+    }
+    
     body {
-      font-family: Arial, sans-serif;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
       text-align: center;
-      padding: 20px;
-      max-width: 600px;
+      padding: 15px;
       margin: 0 auto;
-      line-height: 1.6;
-      background-image: url('https://drive.google.com/uc?export=view&id=1H8nOZA33bB45yal8Do4YYY9qsKwNTU7w'); /* Замените на ссылку вашего изображения */
+      line-height: 1.5;
+      background-image: url('https://i.ibb.co/8XYWnJz/background.jpg');
       background-size: cover;
       background-position: center;
-      background-blend-mode: overlay;
-      background-color: rgba(255, 255, 255, 0.8); /* Полупрозрачный белый фон для лучшей читаемости */
+      background-attachment: fixed;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
     }
+    
     .container {
-      background-color: rgba(255, 255, 255, 0.9); /* Легкая прозрачность контейнера */
-      padding: 30px;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      background-color: rgba(255, 255, 255, 0.95);
+      padding: 25px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      margin: 15px;
+      backdrop-filter: blur(5px);
+      -webkit-backdrop-filter: blur(5px);
     }
+    
     .logo {
-      max-width: 150px;
-      margin-bottom: 20px;
+      max-width: 180px;
+      margin: 0 auto 20px;
+      height: auto;
+      display: block;
     }
+    
     .btn {
       display: block;
-      margin: 20px auto;
-      padding: 12px 0;
-      background: #FFB6C1; /* Нежно-розовый цвет */
-      color: #333;
+      margin: 25px auto;
+      padding: 16px 0;
+      background: var(--primary-color);
+      color: white;
       text-decoration: none;
-      border-radius: 5px;
-      width: 80%;
+      border-radius: 12px;
+      width: 90%;
       max-width: 300px;
-      font-weight: bold;
-      transition: background 0.3s;
+      font-weight: 600;
+      font-size: 17px;
+      transition: all 0.3s ease;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 4px 12px rgba(255, 107, 139, 0.3);
     }
+    
     .btn:hover {
-      background: #FF69B4; /* Более насыщенный розовый при наведении */
+      background: var(--hover-color);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(255, 71, 87, 0.4);
     }
+    
     h1 {
       color: #333;
-      margin-bottom: 30px;
+      margin: 0 0 15px;
+      font-size: 22px;
+      font-weight: 600;
+    }
+    
+    .product-image {
+      width: 100%;
+      max-width: 300px;
+      border-radius: 12px;
+      margin: 15px auto;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+    
+    .ig-handle {
+      color: var(--primary-color);
+      font-weight: 600;
+      margin-top: 20px;
+      display: block;
+    }
+    
+    @media (max-width: 480px) {
+      .container {
+        padding: 20px 15px;
+      }
+      
+      .btn {
+        padding: 14px 0;
+        font-size: 16px;
+      }
     }
   </style>
 </head>
@@ -81,32 +114,68 @@
   <!-- Google Tag Manager (noscript) -->
   <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-WHQ7D2NK"
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
-  <!-- End Google Tag Manager (noscript) -->
   
-<div class="container">
-  <img src="https://drive.google.com/uc?export=view&id=1lvr6Xq9x3fX8QzM0GzFF1jENDfu1wKxs" class="logo">  <!-- Замените на ссылку вашего логотипа -->
+  <div class="container">
+    <!-- Логотип компании -->
+    <img src="https://i.ibb.co/0jQY4HZ/logo.png" alt="Nosiams Brand" class="logo">
     
-    <h1>Спасибо, что Вам интересен наш товар</h1>
+    <h1>Спасибо, что заинтересовались нашим товаром!</h1>
     
-    <a href="https://www.wildberries.ru/catalog/277499855/detail.aspx" class="btn">Перейти к товару на WB</a>
+    <!-- Изображение товара -->
+    <img src="https://i.ibb.co/8XYWnJz/product.jpg" alt="Наш товар" class="product-image">
+    
+    <!-- Основная кнопка CTA -->
+    <a href="https://www.wildberries.ru/catalog/277499855/detail.aspx" class="btn">Купить на Wildberries</a>
+    
+    <!-- Ссылка на Instagram -->
+    <a href="https://instagram.com/your_profile" class="ig-handle">@your_profile</a>
   </div>
 
   <script>
-    document.querySelectorAll('.btn').forEach(btn => {
-      // Добавляем UTM-метки к ссылке
-      const originalUrl = btn.getAttribute('href');
-      const utmString = new URLSearchParams(utmParams).toString();
-      if (utmString) {
-        btn.setAttribute('href', `${originalUrl}${originalUrl.includes('?') ? '&' : '?'}${utmString}`);
-      }
-
-      // Отправка кликов в GTM
-      btn.addEventListener('click', function() {
-        dataLayer.push({
-          'event': 'utm_click',
-          'button_text': this.textContent.trim(),
-          ...utmParams
-        });
+    // Автоматическое добавление UTM-меток для Instagram Stories
+    document.addEventListener('DOMContentLoaded', function() {
+      // Проверяем реферера
+      const isFromIG = document.referrer.includes('instagram.com') || 
+                      window.location.href.includes('igshid');
+      
+      // Устанавливаем UTM-метки по умолчанию для Instagram
+      const defaultUtm = {
+        utm_source: 'instagram',
+        utm_medium: 'stories',
+        utm_campaign: 'nosiams_promo',
+        utm_content: new Date().toLocaleDateString('ru-RU')
+      };
+      
+      // Получаем текущие UTM-метки из URL
+      const urlParams = new URLSearchParams(window.location.search);
+      const currentUtm = {};
+      
+      urlParams.forEach((value, key) => {
+        if (key.startsWith('utm_')) {
+          currentUtm[key] = value;
+        }
+      });
+      
+      // Объединяем метки (приоритет у тех, что уже в URL)
+      const finalUtm = {...defaultUtm, ...currentUtm};
+      
+      // Отправляем в dataLayer
+      window.dataLayer = window.dataLayer || [];
+      dataLayer.push({
+        'event': 'utm_tracking',
+        ...finalUtm,
+        'is_from_instagram': isFromIG
+      });
+      
+      // Добавляем UTM-метки ко всем ссылкам
+      document.querySelectorAll('a').forEach(link => {
+        if (link.href.includes('wildberries.ru') || link.href.includes('instagram.com')) {
+          const url = new URL(link.href);
+          Object.entries(finalUtm).forEach(([key, value]) => {
+            url.searchParams.set(key, value);
+          });
+          link.href = url.toString();
+        }
       });
     });
   </script>
