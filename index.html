@@ -17,6 +17,7 @@
     :root {
       --primary-color: #FF6B8B;
       --hover-color: #FF4757;
+      --peach-bg: #FFDAB9; /* Персиковый цвет фона */
     }
     
     body {
@@ -25,24 +26,19 @@
       padding: 15px;
       margin: 0 auto;
       line-height: 1.5;
-      background-image: url('https://i.ibb.co/MkgB7gSZ/background.jpg');
-      background-size: cover;
-      background-position: center;
-      background-attachment: fixed;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
       justify-content: center;
+      background-color: #f9f9f9; /* Светлый фон страницы */
     }
     
     .container {
-      background-color: rgba(255, 255, 255, 0.95);
+      background-color: var(--peach-bg); /* Персиковый фон контейнера */
       padding: 25px;
       border-radius: 16px;
       box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
       margin: 15px;
-      backdrop-filter: blur(5px);
-      -webkit-backdrop-filter: blur(5px);
     }
     
     .logo {
@@ -50,6 +46,11 @@
       margin: 0 auto 20px;
       height: auto;
       display: block;
+      transition: transform 0.3s ease;
+    }
+    
+    .logo:hover {
+      transform: scale(1.05);
     }
     
     .btn {
@@ -83,19 +84,12 @@
       font-weight: 600;
     }
     
-    .product-image {
-      width: 100%;
-      max-width: 300px;
-      border-radius: 12px;
-      margin: 15px auto;
-      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-    }
-    
     .ig-handle {
       color: var(--primary-color);
       font-weight: 600;
       margin-top: 20px;
       display: block;
+      text-decoration: none;
     }
     
     @media (max-width: 480px) {
@@ -116,19 +110,18 @@
   height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
   
   <div class="container">
-    <!-- Логотип компании -->
-    <img src="https://i.ibb.co/zp0dKXt/logo.png" alt="Nosiams Brand" class="logo">
+    <!-- Кликабельный логотип с ссылкой на Instagram -->
+    <a href="https://www.instagram.com/nosiams_brand?igsh=MWl2OHdtdDR0enVycg==" target="_blank">
+      <img src="https://i.ibb.co/zp0dKXt/logo.png" alt="Nosiams Brand" class="logo">
+    </a>
     
     <h1>Спасибо за интерес к нашему товару</h1>
     
-    <!-- Изображение товара -->
-    <img src="https://i.ibb.co/k6xksMpt/image.png" alt="Наш товар" border="0" class="product-image>
-        
     <!-- Основная кнопка CTA -->
     <a href="https://www.wildberries.ru/catalog/277499855/detail.aspx" class="btn">Купить на Wildberries</a>
     
     <!-- Ссылка на Instagram -->
-    <a href="https://www.instagram.com/nosiams_brand?igsh=MWl2OHdtdDR0enVycg==" class="ig-handle">Nosiams</a>
+    <a href="https://www.instagram.com/nosiams_brand?igsh=MWl2OHdtdDR0enVycg==" class="ig-handle" target="_blank">@nosiams_brand</a>
   </div>
 
   <script>
